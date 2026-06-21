@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Script Vault | Creator Collaboration System</title>
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/scripts.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-left">
+      <div class="brand-logo">CC</div>
+      <div>
+        <h1 class="brand-name">Script Vault</h1>
+        <p class="brand-sub">All your campaign scripts</p>
+      </div>
+    </div>
+    <div class="navbar-right">
+      <a href="dashboard.html" class="btn btn-outline">← Dashboard</a>
+      <button id="logoutBtn" class="btn btn-outline">Logout</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="add">Add Script</button>
+      <button class="tab-btn" data-tab="view">View Scripts</button>
+      <button class="tab-btn" data-tab="search">Search</button>
+    </div>
+    <!-- Add Script -->
+    <section class="tab-panel active" id="tab-add">
+      <div class="card">
+        <h3>Add New Script</h3>
+        <form id="scriptForm" class="grid-form" novalidate>
+          <input type="hidden" id="scriptId" />
+          <div class="form-group"><label>Script Title *</label><input type="text" id="sTitle" /></div>
+          <div class="form-group"><label>Product Name *</label><input type="text" id="sProduct" /></div>
+          <div class="form-group">
+            <label>Script Type *</label>
+            <select id="sType">
+              <option value="">Select</option>
+              <option>UGC</option><option>POV</option><option>Aesthetic</option>
+              <option>Testimonial</option><option>Dermat POV</option><option>Athlete POV</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Created By *</label><input type="text" id="sAuthor" /></div>
+          <div class="form-group"><label>Date *</label><input type="date" id="sDate" /></div>
+          <div class="form-group full"><label>Script Content *</label><textarea id="sContent" rows="6"></textarea></div>
+          <div class="form-actions full">
+            <button type="submit" class="btn btn-primary">Save Script</button>
+            <button type="button" id="clearScript" class="btn btn-outline">Clear Form</button>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- View Scripts -->
+    <section class="tab-panel" id="tab-view">
+      <div class="card">
+        <h3>All Scripts</h3>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Title</th><th>Product</th><th>Type</th><th>Author</th><th>Date</th><th>Actions</th></tr></thead>
+            <tbody id="scriptTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <!-- Search -->
+    <section class="tab-panel" id="tab-search">
+      <div class="card">
+        <h3>Search Scripts</h3>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search by product, type or creator..." />
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Title</th><th>Product</th><th>Type</th><th>Author</th><th>Date</th></tr></thead>
+            <tbody id="searchTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Script Details Modal -->
+  <div id="viewModal" class="modal hidden">
+    <div class="modal-content">
+      <button class="modal-close" data-close>&times;</button>
+      <h3 id="vTitle">Script</h3>
+      <p><strong>Product:</strong> <span id="vProduct"></span></p>
+      <p><strong>Type:</strong> <span id="vType"></span></p>
+      <p><strong>Author:</strong> <span id="vAuthor"></span></p>
+      <p><strong>Date:</strong> <span id="vDate"></span></p>
+      <hr/>
+      <p><strong>Script:</strong></p>
+      <pre id="vContent" class="script-content"></pre>
+    </div>
+  </div>
+  <div id="confirmModal" class="modal hidden">
+    <div class="modal-content small">
+      <h3>Confirm Delete</h3>
+      <p>Are you sure you want to delete this script?</p>
+      <div class="modal-actions">
+        <button id="confirmYes" class="btn btn-danger">Delete</button>
+        <button class="btn btn-outline" data-close>Cancel</button>
+      </div>
+    </div>
+  </div>
+  <div id="toast" class="toast hidden"></div>
+  <script src="js/storage.js"></script>
+  <script src="js/scripts.js"></script>
+</body>
+</html>

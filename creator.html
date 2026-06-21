@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Creator Hub | Creator Collaboration System</title>
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/creator.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-left">
+      <div class="brand-logo">CC</div>
+      <div>
+        <h1 class="brand-name">Creator Hub</h1>
+        <p class="brand-sub">Manage your creators</p>
+      </div>
+    </div>
+    <div class="navbar-right">
+      <a href="dashboard.html" class="btn btn-outline">← Dashboard</a>
+      <button id="logoutBtn" class="btn btn-outline">Logout</button>
+    </div>
+  </header>
+  <main class="container">
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="add">Add Creator</button>
+      <button class="tab-btn" data-tab="view">View Creators</button>
+      <button class="tab-btn" data-tab="search">Search</button>
+      <button class="tab-btn" data-tab="status">Collaboration Status</button>
+    </div>
+    <!-- Tab: Add Creator -->
+    <section class="tab-panel active" id="tab-add">
+      <div class="card">
+        <h3>Add New Creator</h3>
+        <form id="creatorForm" class="grid-form" novalidate>
+          <input type="hidden" id="creatorId" />
+          <div class="form-group"><label>Creator Name *</label><input type="text" id="cName" /></div>
+          <div class="form-group"><label>Instagram Handle *</label><input type="text" id="cHandle" placeholder="@handle" /></div>
+          <div class="form-group">
+            <label>Platform *</label>
+            <select id="cPlatform">
+              <option value="">Select</option>
+              <option>Instagram</option><option>YouTube</option><option>TikTok</option><option>Facebook</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Followers *</label><input type="number" id="cFollowers" min="0" /></div>
+          <div class="form-group">
+            <label>Category *</label>
+            <select id="cCategory">
+              <option value="">Select</option>
+              <option>Skincare</option><option>Beauty</option><option>Lifestyle</option>
+              <option>Fitness</option><option>Fashion</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Email *</label><input type="email" id="cEmail" /></div>
+          <div class="form-group"><label>Contact Number</label><input type="text" id="cContact" /></div>
+          <div class="form-group full"><label>Notes</label><textarea id="cNotes" rows="3"></textarea></div>
+          <div class="form-actions full">
+            <button type="submit" class="btn btn-primary">Save Creator</button>
+            <button type="button" id="clearCreator" class="btn btn-outline">Clear Form</button>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- Tab: View -->
+    <section class="tab-panel" id="tab-view">
+      <div class="card">
+        <h3>All Creators</h3>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr>
+              <th>Name</th><th>Handle</th><th>Platform</th><th>Followers</th>
+              <th>Category</th><th>Status</th><th>Actions</th>
+            </tr></thead>
+            <tbody id="creatorTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <!-- Tab: Search -->
+    <section class="tab-panel" id="tab-search">
+      <div class="card">
+        <h3>Search Creators</h3>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search by name, handle or platform..." />
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Name</th><th>Handle</th><th>Platform</th><th>Followers</th><th>Category</th></tr></thead>
+            <tbody id="searchTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <!-- Tab: Status -->
+    <section class="tab-panel" id="tab-status">
+      <div class="card">
+        <h3>Collaboration Status</h3>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Name</th><th>Handle</th><th>Platform</th><th>Status</th></tr></thead>
+            <tbody id="statusTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- View Modal -->
+  <div id="viewModal" class="modal hidden">
+    <div class="modal-content">
+      <button class="modal-close" data-close>&times;</button>
+      <h3>Creator Details</h3>
+      <div id="viewBody"></div>
+    </div>
+  </div>
+  <!-- Confirm Modal -->
+  <div id="confirmModal" class="modal hidden">
+    <div class="modal-content small">
+      <h3>Confirm Delete</h3>
+      <p>Are you sure you want to delete this record?</p>
+      <div class="modal-actions">
+        <button id="confirmYes" class="btn btn-danger">Delete</button>
+        <button class="btn btn-outline" data-close>Cancel</button>
+      </div>
+    </div>
+  </div>
+  <div id="toast" class="toast hidden"></div>
+  <script src="js/storage.js"></script>
+  <script src="js/creator.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+/* Scripts page styles */
+.script-content {
+  background: var(--accent);
+  padding: 14px;
+  border-radius: 8px;
+  white-space: pre-wrap;
+  font-family: inherit;
+  font-size: 14px;
+  max-height: 300px; overflow-y: auto;
+  border-left: 4px solid var(--primary);
+}

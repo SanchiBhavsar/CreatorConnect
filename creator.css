@@ -1,0 +1,7 @@
+/* Creator Hub specific styles */
+.status-select {
+  padding: 6px 8px; border-radius: 6px; font-size: 13px;
+  border: 1px solid var(--border); background: white;
+}
+#viewBody p { margin-bottom: 8px; font-size: 14px; }
+#viewBody strong { color: var(--primary-dark); }

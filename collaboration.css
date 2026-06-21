@@ -1,0 +1,5 @@
+/* Collaboration Desk styles */
+.status-select {
+  padding: 6px 8px; border-radius: 6px; font-size: 13px;
+  border: 1px solid var(--border); background: white;
+}

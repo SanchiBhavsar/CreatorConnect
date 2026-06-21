@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard | Creator Collaboration System</title>
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <div class="navbar-left">
+      <div class="brand-logo">CC</div>
+      <div>
+        <h1 class="brand-name">Creator Collab</h1>
+        <p class="brand-sub">Campaign Management System</p>
+      </div>
+    </div>
+    <div class="navbar-right">
+      <span class="user-chip">Hi, <strong id="loggedUser">admin</strong></span>
+      <button id="logoutBtn" class="btn btn-outline">Logout</button>
+    </div>
+  </header>
+  <main class="container">
+    <section class="welcome">
+      <h2>Dashboard</h2>
+      <p>Overview of your creators, scripts and campaigns.</p>
+    </section>
+    <!-- Stat Cards -->
+    <section class="stats-grid">
+      <div class="stat-card"><h3 id="statCreators">0</h3><p>Total Creators</p></div>
+      <div class="stat-card"><h3 id="statContacted">0</h3><p>Contacted Creators</p></div>
+      <div class="stat-card"><h3 id="statActiveCollabs">0</h3><p>Active Collaborations</p></div>
+      <div class="stat-card"><h3 id="statPendingDeliv">0</h3><p>Pending Deliverables</p></div>
+      <div class="stat-card"><h3 id="statScripts">0</h3><p>Total Scripts</p></div>
+      <div class="stat-card"><h3 id="statBarter">0</h3><p>Active Barter Campaigns</p></div>
+    </section>
+    <!-- Module Cards -->
+    <section class="modules-grid">
+      <a href="creator.html" class="module-card">
+        <div class="module-icon">👥</div>
+        <h3>Creator Hub</h3>
+        <p>Manage your creators database.</p>
+      </a>
+      <a href="scripts.html" class="module-card">
+        <div class="module-icon">📜</div>
+        <h3>Script Vault</h3>
+        <p>Store and organize all your scripts.</p>
+      </a>
+      <a href="collaboration.html" class="module-card">
+        <div class="module-icon">🤝</div>
+        <h3>Collaboration Desk</h3>
+        <p>Track campaigns, dispatches & deliverables.</p>
+      </a>
+    </section>
+  </main>
+  <div id="toast" class="toast hidden"></div>
+  <script src="js/storage.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
